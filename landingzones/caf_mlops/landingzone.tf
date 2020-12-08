@@ -1,6 +1,7 @@
 module "mlops" {
-  source  = "aztfmod/caf/azurerm"
-  version = "~> 0.4"
+  source  = "../../../modules"
+  #source  = "aztfmod/caf/azurerm"
+  #version = "~> 0.4"
 
   current_landingzone_key  = var.landingzone.key
   tags                     = local.tags
@@ -20,9 +21,10 @@ module "mlops" {
   }
 
   webapp = {
-    azurerm_application_insights = var.azurerm_application_insights
-    app_service_plans            = var.app_service_plans
-    app_services                 = var.app_services
+    azurerm_application_insights  = var.azurerm_application_insights
+    app_service_plans             = var.app_service_plans
+    app_services                  = var.app_services
+    function_apps                 = var.function_apps
   }
 
   remote_objects = {
