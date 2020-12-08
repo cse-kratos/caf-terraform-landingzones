@@ -72,3 +72,7 @@ variable app_service_plans {
 variable app_services {
   default = {}
 }
+
+variable function_apps {
+  default = {}
+}
