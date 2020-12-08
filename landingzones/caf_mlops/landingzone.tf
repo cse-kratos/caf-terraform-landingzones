@@ -1,6 +1,7 @@
 module "mlops" {
-  source  = "aztfmod/caf/azurerm"
-  version = "~> 0.4"
+  source  = "../../../modules"
+  #source  = "aztfmod/caf/azurerm"
+  #version = "~> 0.4"
 
   current_landingzone_key  = var.landingzone.key
   tags                     = local.tags
