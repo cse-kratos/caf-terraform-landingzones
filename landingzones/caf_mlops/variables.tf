@@ -76,3 +76,7 @@ variable app_services {
 variable function_apps {
   default = {}
 }
+
+variable cosmos_dbs {
+  default = {}
+}
