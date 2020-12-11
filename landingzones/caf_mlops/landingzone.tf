@@ -18,6 +18,7 @@ module "mlops" {
 
   database = {
     machine_learning_workspaces = var.machine_learning_workspaces
+    cosmos_dbs = var.cosmos_dbs
   }
 
   webapp = {
