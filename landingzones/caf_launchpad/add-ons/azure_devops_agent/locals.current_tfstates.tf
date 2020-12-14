@@ -21,6 +21,7 @@ data "terraform_remote_state" "remote" {
     storage_account_name = local.landingzone[try(each.value.level, "current")].storage_account_name
     container_name       = local.landingzone[try(each.value.level, "current")].container_name
     resource_group_name  = local.landingzone[try(each.value.level, "current")].resource_group_name
+    subscription_id      = var.tfstate_subscription_id
     key                  = each.value.tfstate
   }
 }
@@ -30,7 +31,7 @@ locals {
     "landingzone" = var.landingzone.key
   }
 
-  tags = merge(var.tags, local.landingzone_tag, { "level" = var.landingzone.level }, { "environment" = local.global_settings.environment }, { "rover_version" = var.rover_version })
+  tags = merge(var.tags, local.landingzone_tag, local.global_settings.tags, { "level" = var.landingzone.level }, { "environment" = local.global_settings.environment }, { "rover_version" = var.rover_version })
 
   global_settings = data.terraform_remote_state.remote[var.landingzone.global_settings_key].outputs.global_settings
 

@@ -1,3 +1,8 @@
+output diagnostics {
+  value     = module.networking.diagnostics
+  sensitive = true
+}
+
 output tfstates {
   value     = local.tfstates
   sensitive = true
@@ -56,4 +61,8 @@ output diagnostics {
 output global_settings {
   value     = local.global_settings
   sensitive = true
+}
+output express_route_circuits {
+  value     = module.networking.express_route_circuits
+  sensitive = false
 }

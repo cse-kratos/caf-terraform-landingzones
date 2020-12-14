@@ -21,6 +21,7 @@ data "terraform_remote_state" "remote" {
     storage_account_name = local.landingzone[try(each.value.level, "current")].storage_account_name
     container_name       = local.landingzone[try(each.value.level, "current")].container_name
     resource_group_name  = local.landingzone[try(each.value.level, "current")].resource_group_name
+    subscription_id      = var.tfstate_subscription_id
     key                  = each.value.tfstate
   }
 }
@@ -30,18 +31,9 @@ locals {
     "landingzone" = var.landingzone.key
   }
 
-  tags = merge(var.tags, local.landingzone_tag, { "level" = var.landingzone.level }, { "environment" = local.global_settings.environment }, { "rover_version" = var.rover_version })
+  tags = merge(var.tags, local.landingzone_tag, local.global_settings.tags, { "level" = var.landingzone.level }, { "environment" = local.global_settings.environment }, { "rover_version" = var.rover_version })
 
-  global_settings = {
-    prefix             = data.terraform_remote_state.remote[var.landingzone.global_settings_key].outputs.global_settings.prefix
-    prefix_with_hyphen = data.terraform_remote_state.remote[var.landingzone.global_settings_key].outputs.global_settings.prefix_with_hyphen
-    prefix_start_alpha = data.terraform_remote_state.remote[var.landingzone.global_settings_key].outputs.global_settings.prefix_start_alpha
-    default_region     = try(var.global_settings.default_region, data.terraform_remote_state.remote[var.landingzone.global_settings_key].outputs.global_settings.default_region)
-    environment        = data.terraform_remote_state.remote[var.landingzone.global_settings_key].outputs.global_settings.environment
-    regions            = try(var.global_settings.regions, data.terraform_remote_state.remote[var.landingzone.global_settings_key].outputs.global_settings.regions)
-    passthrough        = data.terraform_remote_state.remote[var.landingzone.global_settings_key].outputs.global_settings.passthrough
-    random_length      = data.terraform_remote_state.remote[var.landingzone.global_settings_key].outputs.global_settings.random_length
-  }
+  global_settings = data.terraform_remote_state.remote[var.landingzone.global_settings_key].outputs.global_settings
 
   diagnostics = {
     diagnostics_definition   = merge(data.terraform_remote_state.remote[var.landingzone.global_settings_key].outputs.diagnostics.diagnostics_definition, var.diagnostics_definition)
