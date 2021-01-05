@@ -53,11 +53,6 @@ output azuread_groups {
   sensitive = true
 }
 
-output diagnostics {
-  value     = local.diagnostics
-  sensitive = true
-}
-
 output global_settings {
   value     = local.global_settings
   sensitive = true
