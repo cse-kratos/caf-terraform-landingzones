@@ -125,3 +125,51 @@ variable machine_learning_workspaces {
 variable function_apps {
   default = {}
 }
+
+variable linked_service_azure_blob_storage {
+  default = {}
+}
+
+variable data_factory {
+  default = {}
+}
+
+variable data_factory_trigger_schedule {
+  default = {}
+}
+
+variable data_factory_pipeline {
+  default = {}
+}
+
+variable dataset_blob_storage {
+  default = {}
+}
+
+variable dataset_cosmosdb_sqlapi {
+  default = {}
+}
+
+variable dataset_delimited_text {
+  default = {}
+}
+
+variable dataset_http {
+  default = {}
+}
+
+variable dataset_json {
+  default = {}
+}
+
+variable dataset_mysql {
+  default = {}
+}
+
+variable dataset_postgresql {
+  default = {}
+}
+
+variable dataset_sql_server_table {
+  default = {}
+}

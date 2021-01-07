@@ -52,6 +52,25 @@ module "commonzone" {
     function_apps = var.function_apps
   }
 
+  data_factory = {
+    data_factory                  = var.data_factory
+    data_factory_trigger_schedule = var.data_factory_trigger_schedule
+    data_factory_pipeline         = var.data_factory_pipeline
+    datasets = {
+      azure_blob       = var.dataset_blob_storage
+      cosmosdb_sqlapi  = var.dataset_cosmosdb_sqlapi
+      delimited_text   = var.dataset_delimited_text
+      http             = var.dataset_http
+      json             = var.dataset_json
+      mysql            = var.dataset_mysql
+      postgresql       = var.dataset_postgresql
+      sql_server_table = var.dataset_sql_server_table
+    }
+    linked_services = {
+      azure_blob_storage = var.linked_service_azure_blob_storage
+    }
+  }
+
   remote_objects = {
     azuread_groups                   = local.remote.azuread_groups
     managed_identities               = local.remote.managed_identities
