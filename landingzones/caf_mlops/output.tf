@@ -14,7 +14,7 @@ output tfstates {
 }
 
 output managed_identities {
-  value     = local.remote.managed_identities
+  value     = local.combined.managed_identities
   sensitive = true
 }
 output azuread_groups {
@@ -35,5 +35,9 @@ output keyvaults {
 }
 output ml_workspace {
   value     = module.mlops.machine_learning_workspaces
+  sensitive = true
+}
+output app_services {
+  value     = module.mlops.app_services
   sensitive = true
 }
