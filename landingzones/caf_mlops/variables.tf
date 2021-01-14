@@ -119,3 +119,7 @@ variable role_mapping {
 variable azure_container_registries {
   default = {}
 }
+
+variable dynamic_keyvault_secrets {
+  default = {}
+}

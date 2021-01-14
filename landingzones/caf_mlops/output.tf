@@ -41,3 +41,8 @@ output app_services {
   value     = module.mlops.app_services
   sensitive = true
 }
+
+output azure_container_registries {
+  value     = module.mlops.azure_container_registries
+  sensitive = true
+}
