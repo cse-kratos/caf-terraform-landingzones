@@ -15,10 +15,16 @@ module "mlops" {
   keyvaults                = var.keyvaults
   keyvault_access_policies = var.keyvault_access_policies
   storage_accounts         = var.storage_accounts
+  managed_identities       = var.managed_identities
+  role_mapping             = var.role_mapping
 
   database = {
     machine_learning_workspaces = var.machine_learning_workspaces
     cosmos_dbs = var.cosmos_dbs
+  }
+
+  compute = {
+    azure_container_registries = var.azure_container_registries
   }
 
   webapp = {

@@ -74,6 +74,7 @@ locals {
 
 
   combined = {
+    managed_identities               = merge(local.remote.managed_identities, map(var.landingzone.key, module.mlops.managed_identities))
     vnets                            = merge(local.remote.vnets, map(var.landingzone.key, module.mlops.vnets))
     azurerm_firewalls                = merge(local.remote.azurerm_firewalls, map(var.landingzone.key, module.mlops.azurerm_firewalls))
     public_ip_addresses              = merge(local.remote.public_ip_addresses, map(var.landingzone.key, module.mlops.public_ip_addresses))

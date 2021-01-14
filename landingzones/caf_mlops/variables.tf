@@ -105,4 +105,21 @@ variable logic_app_trigger_recurrence {
 }  
 variable logic_app_workflow {
   default = {}
-}            
+}
+variable managed_identities {
+  default = {}
+}
+variable role_mapping {
+  default = {
+    built_in_role_mapping = {}
+    custom_role_mapping   = {}
+  }
+}
+
+variable azure_container_registries {
+  default = {}
+}
+
+variable dynamic_keyvault_secrets {
+  default = {}
+}
