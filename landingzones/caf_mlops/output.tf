@@ -46,3 +46,8 @@ output azure_container_registries {
   value     = module.mlops.azure_container_registries
   sensitive = true
 }
+
+output cosmos_dbs {
+  value     = module.mlops.cosmos_dbs
+  sensitive = true
+}
