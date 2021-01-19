@@ -51,3 +51,8 @@ output cosmos_dbs {
   value     = module.mlops.cosmos_dbs
   sensitive = true
 }
+
+output app_config {
+  value     = module.mlops.app_config
+  sensitive = true
+}

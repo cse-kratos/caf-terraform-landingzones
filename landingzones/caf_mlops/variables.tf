@@ -123,3 +123,7 @@ variable azure_container_registries {
 variable dynamic_keyvault_secrets {
   default = {}
 }
+
+variable app_config {
+  default = {}
+}

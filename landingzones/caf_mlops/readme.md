@@ -6,6 +6,7 @@ The mlops landing zone allows you to deploy a simple machine learning workspace 
 * App insights
 * Key Vault
 * Storage Account
+* Application Configuration
 
 MLOps landing zone operates at **level 3**.
 
