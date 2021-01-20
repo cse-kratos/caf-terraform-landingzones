@@ -43,6 +43,9 @@ locals {
   }
 
   remote = {
+    machine_learning_workspaces = {
+      for key, value in try(var.landingzone.tfstates, {}) : key => merge(try(data.terraform_remote_state.remote[key].outputs.ml_workspace[key], {}))
+    }
     managed_identities = {
       for key, value in try(var.landingzone.tfstates, {}) : key => merge(try(data.terraform_remote_state.remote[key].outputs.managed_identities[key], {}))
     }
@@ -74,6 +77,7 @@ locals {
 
 
   combined = {
+    machine_learning_workspaces      = merge(local.remote.machine_learning_workspaces, map(var.landingzone.key, module.mlops.machine_learning_workspaces))
     managed_identities               = merge(local.remote.managed_identities, map(var.landingzone.key, module.mlops.managed_identities))
     vnets                            = merge(local.remote.vnets, map(var.landingzone.key, module.mlops.vnets))
     azurerm_firewalls                = merge(local.remote.azurerm_firewalls, map(var.landingzone.key, module.mlops.azurerm_firewalls))

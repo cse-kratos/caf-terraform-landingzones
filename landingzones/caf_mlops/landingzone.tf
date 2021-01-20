@@ -37,6 +37,7 @@ module "mlops" {
 
   remote_objects = {
     azuread_groups                   = local.remote.azuread_groups
+    machine_learning_workspaces      = local.remote.machine_learning_workspaces
     managed_identities               = local.remote.managed_identities
     vnets                            = local.remote.vnets
     azurerm_firewalls                = local.remote.azurerm_firewalls
