@@ -20,7 +20,8 @@ module "mlops" {
 
   database = {
     machine_learning_workspaces = var.machine_learning_workspaces
-    cosmos_dbs = var.cosmos_dbs
+    cosmos_dbs                  = var.cosmos_dbs
+    app_config                  = var.app_config
   }
 
   compute = {
@@ -36,6 +37,7 @@ module "mlops" {
 
   remote_objects = {
     azuread_groups                   = local.remote.azuread_groups
+    machine_learning_workspaces      = local.remote.machine_learning_workspaces
     managed_identities               = local.remote.managed_identities
     vnets                            = local.remote.vnets
     azurerm_firewalls                = local.remote.azurerm_firewalls
