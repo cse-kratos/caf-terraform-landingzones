@@ -25,7 +25,7 @@ output storage_accounts {
   value     = module.mlops.storage_accounts
   sensitive = true
 }
-output application_insights {
+output azurerm_application_insights {
   value     = module.mlops.application_insights
   sensitive = true
 }
