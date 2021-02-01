@@ -1,7 +1,8 @@
+#For full description on enterprise_scale module usage, please refer to https://github.com/Azure/terraform-azurerm-caf-enterprise-scale
 
 module "enterprise_scale" {
   source  = "Azure/caf-enterprise-scale/azurerm"
-  version = "0.0.7-preview"
+  version = "0.0.8"
 
   root_parent_id = data.azurerm_client_config.current.tenant_id
 
@@ -16,7 +17,7 @@ module "enterprise_scale" {
   deploy_demo_landing_zones = false
 
   # Set a path for the custom archetype library path
-  library_path = try(format("%s%s", path.root, var.enterprise_scale.library_path), "")
+  library_path = try(format("%s", var.enterprise_scale.library_path), "")
 
   # Deploys the custom landing zone configuration as defined in config file
   custom_landing_zones = try(var.enterprise_scale.management_groups, {})
