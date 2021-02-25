@@ -1,4 +1,5 @@
 module "foundations" {
+  # source = "/tf/caf/aztfmod"
   source  = "aztfmod/caf/azurerm"
   version = "~>5.1.0"
 
@@ -17,14 +18,4 @@ module "foundations" {
   keyvaults                   = var.keyvaults
   log_analytics               = var.log_analytics
   event_hub_namespaces        = var.event_hub_namespaces
-
-  ## Azure Active Directory
-  azuread_apps                = var.azuread_apps
-  azuread_api_permissions     = var.azuread_api_permissions
-  azuread_groups              = var.azuread_groups
-  azuread_roles               = var.azuread_roles
-  azuread_users               = var.azuread_users
-  managed_identities          = var.managed_identities
-  custom_role_definitions     = var.custom_role_definitions
-  role_mapping                = var.role_mapping
 }
