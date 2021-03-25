@@ -1,5 +1,5 @@
 module "mlops" {
-  source  = "../../../modules"
+  source = "../../../modules"
   #source  = "aztfmod/caf/azurerm"
   #version = "~> 0.4"
 
@@ -29,10 +29,10 @@ module "mlops" {
   }
 
   webapp = {
-    azurerm_application_insights  = var.azurerm_application_insights
-    app_service_plans             = var.app_service_plans
-    app_services                  = var.app_services
-    function_apps                 = var.function_apps
+    azurerm_application_insights = var.azurerm_application_insights
+    app_service_plans            = var.app_service_plans
+    app_services                 = var.app_services
+    function_apps                = var.function_apps
   }
 
   remote_objects = {
@@ -48,7 +48,7 @@ module "mlops" {
     public_ip_addresses              = local.remote.public_ip_addresses
   }
 
-   logic_app = {
+  logic_app = {
     integration_service_environment = var.integration_service_environment
     logic_app_action_custom         = var.logic_app_action_custom
     logic_app_action_http           = var.logic_app_action_http
@@ -57,5 +57,9 @@ module "mlops" {
     logic_app_trigger_http_request  = var.logic_app_trigger_http_request
     logic_app_trigger_recurrence    = var.logic_app_trigger_recurrence
     logic_app_workflow              = var.logic_app_workflow
+  }
+
+  eventgrid = {
+    system_topic = var.eventgrid_system_topic
   }
 }

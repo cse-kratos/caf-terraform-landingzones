@@ -87,22 +87,22 @@ variable integration_service_environment {
 }
 variable logic_app_action_custom {
   default = {}
-}        
+}
 variable logic_app_action_http {
   default = {}
-}          
+}
 variable logic_app_integration_account {
   default = {}
-} 
+}
 variable logic_app_trigger_custom {
   default = {}
-}      
+}
 variable logic_app_trigger_http_request {
   default = {}
-} 
+}
 variable logic_app_trigger_recurrence {
   default = {}
-}  
+}
 variable logic_app_workflow {
   default = {}
 }
@@ -125,5 +125,8 @@ variable dynamic_keyvault_secrets {
 }
 
 variable app_config {
+  default = {}
+}
+variable eventgrid_system_topic {
   default = {}
 }
